@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfjh5cdqd0l7t"]
+
+[ext_resource type="PackedScene" uid="uid://bd7ii61au8c6g" path="res://models/20 ways to open a box.glb" id="1_ubkqj"]
+[ext_resource type="Texture2D" uid="uid://cy5yffmhi2ui5" path="res://models/Screenshot_20260330_141112.png" id="2_wuxjx"]
+[ext_resource type="Texture2D" uid="uid://cb5vy7qvqgoyu" path="res://models/Screenshot_20260330_141305.png" id="2_xlkr5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8cq0"]
+albedo_texture = ExtResource("2_xlkr5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wuxjx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlkr5"]
+albedo_texture = ExtResource("2_wuxjx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w8cq0"]
+
+[node name="20 ways to open a box" instance=ExtResource("1_ubkqj")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.060968738, 0, 0, 0, 0.18893339, 0, 0, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(2.0491066, 0, 0, 0, 0.13430311, 0, 0, 0, 0.41506463, 0, -0.007632464, 0)
+material_override = SubResource("StandardMaterial3D_w8cq0")
+mesh = SubResource("BoxMesh_wuxjx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(-0.98135614, 0, 1.608101e-08, 0, 0.26, 0, -8.579288e-08, 0, -0.18394531, 0, 0.06407556, 0)
+material_override = SubResource("StandardMaterial3D_xlkr5")
+mesh = SubResource("PlaneMesh_w8cq0")

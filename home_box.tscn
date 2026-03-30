@@ -1,0 +1,176 @@
+[gd_scene load_steps=18 format=3 uid="uid://bj3micnwd3rsv"]
+
+[ext_resource type="PackedScene" uid="uid://d0lgf2fubmnul" path="res://home.glb" id="1_a2acf"]
+[ext_resource type="Script" uid="uid://db60dxfo5f8dg" path="res://home_box.gd" id="1_h6xfd"]
+[ext_resource type="Script" uid="uid://dtvbjcgareg2y" path="res://box_for_home.gd" id="2_1y5k2"]
+[ext_resource type="PackedScene" uid="uid://cwy5w6m12p567" path="res://BOX.glb" id="2_jc7tg"]
+[ext_resource type="PackedScene" uid="uid://8fnfvm835waj" path="res://home.tscn" id="3_0lq2k"]
+[ext_resource type="Script" uid="uid://bjflusywmyqw" path="res://csg_box_3d.gd" id="3_8ug4c"]
+[ext_resource type="AudioStream" uid="uid://biebsi4dik3wr" path="res://bot_hit_sfx.ogg" id="5_2ors3"]
+[ext_resource type="Script" uid="uid://bn2is0p87sc1k" path="res://poster2.gd" id="8_dla43"]
+[ext_resource type="PackedScene" uid="uid://dfjh5cdqd0l7t" path="res://20_ways_to_open_a_box.tscn" id="8_ih8m0"]
+[ext_resource type="Script" uid="uid://b6brjeadxnpgc" path="res://poster.gd" id="8_q0hui"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a2acf"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jc7tg"]
+sky_material = SubResource("ProceduralSkyMaterial_a2acf")
+
+[sub_resource type="Environment" id="Environment_0lq2k"]
+background_mode = 2
+sky = SubResource("Sky_jc7tg")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0lq2k"]
+
+[sub_resource type="Animation" id="Animation_b2qb2"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4259338, 0.254364, 0.15112305)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGBox3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ug4c"]
+resource_name = "random"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4259338, 0.254364, -34.39863)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGBox3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGBox3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1y5k2"]
+_data = {
+&"RESET": SubResource("Animation_b2qb2"),
+&"random": SubResource("Animation_8ug4c")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_h6xfd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0lq2k")
+
+[node name="home" parent="." instance=ExtResource("1_a2acf")]
+transform = Transform3D(6.33, 0, 0, 0, 6.33, 0, 0, 0, 6.33, 54.11893, 0, 52.065536)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.72981644, -0.44741982, 0.5168982, 0, 0.7560935, 0.6544638, -0.6836434, -0.4776383, 0.5518093, 5.2439175, 6.9691896, 5.019768)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.83593196, 0, 0.5488332, -0.21803828, 0.91769916, 0.33209574, -0.5036638, -0.39727604, 0.7671341, 13.622988, 17.460564, 18.823355)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 73.076614
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.9661738, 0.2578917, -5.6247957e-09, -0.2510594, 0.9405771, 0.2286567, 0.05896867, -0.22092211, 0.9735071, 0, 13.162712, 0)
+script = ExtResource("2_1y5k2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1.0000001, 3.7252903e-09, -7.450581e-09, 3.7252903e-09, 1, 5.9604645e-08, 7.450581e-09, -2.9802322e-08, 1.0000001, 1.7984471, 0.30460835, 0.7216463)
+shape = SubResource("BoxShape3D_0lq2k")
+
+[node name="BOX" parent="RigidBody3D" instance=ExtResource("2_jc7tg")]
+transform = Transform3D(0.4850002, 9.313226e-10, 1.8626451e-09, 6.0535967e-09, 0.485, 7.450581e-09, 3.7252903e-09, 0, 0.48500016, 1.7984471, 0.30460835, 0.7216463)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+transform = Transform3D(0.35718074, -0.09281309, 0.02179988, 0.09533889, 0.347718, -0.08167176, -5.539255e-09, 0.08453112, 0.35989177, 3.0201197, -4.2723055, -0.39101273)
+stream = ExtResource("5_2ors3")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8563156, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4259338, 0.254364, 0.15112305)
+size = Vector3(24.227112, 0.07696533, 29.421387)
+script = ExtResource("3_8ug4c")
+
+[node name="random" type="AnimationPlayer" parent="CSGCombiner3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_1y5k2")
+}
+
+[node name="Node2D" parent="." instance=ExtResource("3_0lq2k")]
+position = Vector2(2, -2)
+
+[node name="Poster" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.58672875, 0.75457555, -0.2938793, 0.057784908, 0.40099946, 0.91425395, 0.8077191, 0.5194373, -0.27888098, 0.707, 5.968, 4.199)
+mass = 0.001
+gravity_scale = 0.0
+script = ExtResource("8_dla43")
+
+[node name="20 ways to open a box" parent="Poster" instance=ExtResource("8_ih8m0")]
+transform = Transform3D(0.9919917, 0.118322976, -0.044174172, -0.11547654, 0.9913591, 0.062224954, 0.051155116, -0.05662559, 0.9970838, -2.6002603, 1.3265915, -0.40184593)
+script = ExtResource("8_q0hui")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Poster"]
+transform = Transform3D(-0.5867288, 0.057784908, 0.80771923, 0.7545756, 0.4009995, 0.5194374, -0.2938793, 0.914254, -0.278881, -3.321656, -5.107767, -4.0774736)

@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://8fnfvm835waj"]
+
+[ext_resource type="Script" uid="uid://briggbsv4cphc" path="res://home.gd" id="1_1ey7h"]
+[ext_resource type="Texture2D" uid="uid://d0w7hcpqvhaf2" path="res://Screenshot_20260307_220122.png" id="2_o1ld7"]
+[ext_resource type="PackedScene" uid="uid://dfjh5cdqd0l7t" path="res://20_ways_to_open_a_box.tscn" id="3_o1ld7"]
+[ext_resource type="Script" uid="uid://b6brjeadxnpgc" path="res://poster.gd" id="4_2ayvv"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1ey7h")
+
+[node name="Screenshot20260307220122" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576.5, 353.5)
+scale = Vector2(1.4126984, 1.3009174)
+texture = ExtResource("2_o1ld7")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 516.0
+offset_top = 272.0
+offset_right = 1541.0
+offset_bottom = 404.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 96
+text = "20 ways to open a box"
+
+[node name="start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = 243.0
+offset_right = 323.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+
+[node name="quit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 213.0
+offset_top = 398.0
+offset_right = 317.0
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+flat = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 199.0
+offset_top = 321.0
+offset_right = 330.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 50
+text = "Reset"
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+offset_left = 884.0
+offset_top = 1022.0
+offset_right = 1048.0
+offset_bottom = 1053.0
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "HIIIIIIIIIIIIIII :3 debug"
+
+[node name="20 ways to open a box" parent="." instance=ExtResource("3_o1ld7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6815614, 0, 0.6391258)
+script = ExtResource("4_2ayvv")
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 1022.0
+offset_right = 345.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Remember: if you get stuck, press R
+to reset your position!"
+vertical_alignment = 2
+
+[node name="LinkButton" type="LinkButton" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1715.0
+offset_top = 1022.0
+offset_right = 1896.0
+offset_bottom = 1050.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Website and Links!"
+uri = "https://eletrobeamyt.github.io/Website/"
+
+[node name="SUBSCRIBE" type="LinkButton" parent="."]
+offset_left = 1399.0
+offset_top = 1022.0
+offset_right = 1675.0
+offset_bottom = 1062.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "The Video Link! (SUBSCRIBE!)"
+uri = "https://youtube.com/shorts/Eeq64iQT-LY?feature=share"
+
+[connection signal="started" from="." to="20 ways to open a box" method="_on_node_2d_started"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+
+[editable path="20 ways to open a box"]

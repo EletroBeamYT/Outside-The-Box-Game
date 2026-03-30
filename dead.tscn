@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjo0wp1vodvvd"]
+
+[ext_resource type="Texture2D" uid="uid://p2568rbxclmp" path="res://1920x1080-black-solid-color-background.jpg" id="1_8f3xj"]
+[ext_resource type="Script" uid="uid://qgy5026vw1rj" path="res://dead.gd" id="1_unegr"]
+[ext_resource type="PackedScene" uid="uid://d0lgf2fubmnul" path="res://home.glb" id="3_vrggy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_unegr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.0
+shadow_enabled = true
+
+[node name="1920x1080BlackSolidColorBackground" type="Sprite2D" parent="."]
+position = Vector2(936, 588)
+scale = Vector2(34.669662, 26.243519)
+texture = ExtResource("1_8f3xj")
+
+[node name="quit (lame)" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 996.0
+offset_top = 608.0
+offset_right = 1105.0
+offset_bottom = 674.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "QUIT"
+
+[node name="do again" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 677.0
+offset_top = 608.0
+offset_right = 836.0
+offset_bottom = 674.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "AGAIN?"
+
+[node name="home" parent="." instance=ExtResource("3_vrggy")]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="home"]
+transform = Transform3D(3.505426, -0.6735291, 2.9818885, 0, 4.5368695, 1.0247577, -3.0570085, -0.7723257, 3.4192872, 3.8000267, 4.2695637, 3.9381907)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="home"]
+transform = Transform3D(4.6511626, 0, 0, 0, 3.406679, 3.1666787, 0, -3.1666787, 3.406679, -6.044301, 17.718096, 14.210276)
+shadow_enabled = true
+spot_range = 20.045141
+
+[node name="1" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.0
+offset_top = 284.0
+offset_right = 1847.0
+offset_bottom = 436.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 111
+text = "You didnt think outside the box..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 284.0
+offset_right = 1848.0
+offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 111
+text = "Now that wasn't very smart :/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 284.0
+offset_right = 1848.0
+offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 111
+text = "That wasn't part of the rules..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 284.0
+offset_right = 1848.0
+offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 111
+text = "You are dead, not big surprise."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="quit (lame)" to="." method="_on_quit_lame_pressed"]
+[connection signal="pressed" from="do again" to="." method="_on_do_again_pressed"]
