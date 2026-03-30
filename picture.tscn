@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4mwtftgmrqxl"]
+
+[ext_resource type="PackedScene" uid="uid://c03n77yk6y482" path="res://models/Picture.glb" id="1_l6pn7"]
+[ext_resource type="Texture2D" uid="uid://brqc6csxx4efa" path="res://models/Screenshot_20260319_155933.png" id="2_xtl2j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brs1p"]
+albedo_texture = ExtResource("2_xtl2j")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_blmgg"]
+
+[node name="Picture" instance=ExtResource("1_l6pn7")]
+
+[node name="Cube_001" parent="." index="2"]
+transparency = 0.95
+
+[node name="Cube_003" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(1.9031612, 0, 0, 0, -1.11007914e-07, -2.5338056, 0, 2.539565, -1.1075616e-07, 0, 0, -0.102368176)
+material_override = SubResource("StandardMaterial3D_brs1p")
+mesh = SubResource("PlaneMesh_blmgg")

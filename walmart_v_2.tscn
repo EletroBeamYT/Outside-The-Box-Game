@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx24t4qxiacra"]
+
+[ext_resource type="PackedScene" uid="uid://soeqv1lgicuv" path="res://models/Walmart V2.glb" id="1_mxt0w"]
+
+[node name="Walmart V2" instance=ExtResource("1_mxt0w")]
+
+[node name="Sphere" parent="." index="20"]
+transparency = 0.8

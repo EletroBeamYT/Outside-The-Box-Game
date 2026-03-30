@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ktvxi4prtov7"]
+
+[ext_resource type="PackedScene" uid="uid://opo5hdhqfdxy" path="res://start.glb" id="1_ots34"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qn1rc"]
+
+[node name="start" instance=ExtResource("1_ots34")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(3.0676808, 0, 0, 0, 0.43448544, 0, 0, 0, 2.1013627, 0, -0.025217861, 0)
+mesh = SubResource("BoxMesh_qn1rc")
